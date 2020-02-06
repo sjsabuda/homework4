@@ -1,0 +1,224 @@
+
+html{
+    scroll-behavior: smooth;
+}
+
+body{
+  background-color: #ddd;
+  font-size: 18px;
+  margin: 0;
+  padding: 0;
+}
+
+h1{
+  font-size: 50px;
+  line-height: 1;
+  padding: 50px 0;
+  text-align: center;
+}
+
+h2{
+  font-size: 32px;
+  line-height: 1.5;
+}
+
+nav li{
+  display:inline;
+  padding-right:20px;
+
+}
+
+nav a{
+  color: black;
+  font-weight: bold;
+  text-decoration: none; 
+}
+
+nav a:hover{
+  text-decoration: underline;
+}
+
+.skip a{
+  background: white;
+  left: 0;
+  padding: 6px;
+  -webkit-transition: top 1s ease-out;
+  transition: top 1s ease-out;
+  z-index: 1;
+  margin-top: -40px;
+  position: absolute;
+
+  /*Your code here - position relative to the parent */
+  /*Your code here - place 40px higher */;
+}
+
+/*Your code here*/
+/*Add the selector and rule to move the skip 
+link to the exact top of the page.*/
+ 
+
+.skip a:focus{
+  margin-top: 0px;
+  border: solid black 2px;
+}
+/*Your code here*/
+/*Add the selector and code to put a 2px black 
+border around all elements in focus.*/
+  
+
+footer{
+  background-color: black;
+  color: white;
+  grid-column: 1 / -1;  /*Can you explain what this does?*/
+  grid-row: 7 / auto;   /*Can you rewrite it?*/
+  padding: 30px;
+  text-align: center;
+}
+
+nav{
+  background-color: #ddd;
+  padding: 20px 0; 
+  text-align: left;
+  grid-row: 1 / 1;
+  grid-column: 1 / -1;
+
+  /*Spans all of the columns.
+  Begins on 1st row and spans 1 row.*/
+
+  /*Your code here*/
+  /*Span the top row*/
+
+}
+
+header{
+  background-attachment: fixed; /* Parallax effect */     
+  background-position: center;  /* Parallax effect */
+  background-repeat: no-repeat; /* Parallax effect */
+  background-size: cover;       /* Parallax effect */
+  color: white;
+  height: 400px;                /* Parallax effect */
+  grid-column: 1 / -1;
+  grid-row: 2 / 2;
+  background-image: url("../images/header.jpg");
+  /*Spans all of the columns.
+  Begins on 2nd row and spans 1 row.
+  Header uses header.jpg as a non-repeating background image with parallax effect*/
+  /* Set background-image to header.jpg in the images folder */
+  /* Span one row */
+}
+
+header p{
+  color: white;
+  font-size: 24px;
+  padding: 0 100px;
+  text-align: center;
+}
+
+
+.container{
+  display: grid;
+  grid-template-columns: 100px 400px 100px;
+  grid-template-rows: 30px auto auto auto auto auto 100px;
+  grid-row-gap: 15px;
+
+  /*.container class uses grid:
+  Three columns:  100px, 400px, and 100px
+  Seven rows: 30px, five auto, and 100px. 
+  Gap 15px between rows;*/
+}
+
+.about, .method, .clients, .contact{
+  grid-column: 2 / span 1;
+  /*grid-row: 1;*/
+  /*Begin in 2nd  column and span one column
+  Begin on the third, fourth, … rows respectively and each span one row.*/
+
+  /* See documentation for mobile view */
+
+}
+
+.about-image, .method-image, .clients-image, .contact-image{
+  max-height: 700px;
+  max-width: 100%;
+  overflow: hidden;
+  grid-column: 1 / -1;
+  /*Span all of the columns.
+  Have a maximum height of 700px
+  Hide any content that goes outside their grid cell. 
+  Begin on the third, fourth, … rows respectively and each span one row.
+  */
+}
+
+.about, .about-image{
+  grid-row: 3;
+}
+
+.method, .method-image{
+  grid-row: 4;
+}
+
+
+.clients, .clients-image{
+  grid-row: 5;
+}
+
+
+.contact, .contact-image{
+  grid-row: 6 / span 1;
+  grid-column: 1 / -1;
+}
+
+.text-block{
+  background-color: rgba(255, 255, 255, .8);
+  border: 10px solid black;
+  padding: 30px;
+  align-self: center;
+}
+
+
+
+@media all and (min-width: 800px){
+
+  .container{
+    display: grid;
+    grid-template-columns: 50px auto 500px auto 50px;
+    grid-template-rows: 70px 400px 400px 400px 400px 100px;
+    /* See documentation for desktop view */
+    /*.container class uses grid:
+    Five columns: 50px, auto, 500px, auto, and  50px
+    Seven rows: 70px, 400px, 400px, 400px, 400px, 400px, and 100px.*/
+  }
+
+  nav{
+    background-color: #ddd;
+    text-align: right;
+    padding: 35px 0px;
+    align-self: center;
+  }
+
+  .about, .clients, .method-image, .contact-image{
+    grid-column: 3 / span 2;
+  /*Begin in the third column and span two columns*/
+  /* See documentation for desktop view */ 
+  }
+
+  .about-image, .clients-image, .method, .contact{
+    grid-column: 2 / span 2;
+    /*Begins in the second column and span two columns.*/
+    /*Your code here */
+    /* See documentation for desktop view */ 
+    }
+
+
+}  /*End the media query*/
+
+@media screen and (prefers-reduced-motion: reduce){
+  html{
+      scroll-behavior: auto; /* Removes scroll animation */
+  }
+
+  .skip a{
+    -webkit-transition: none;
+    transition: none;
+  }
+}
